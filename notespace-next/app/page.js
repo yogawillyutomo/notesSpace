@@ -357,7 +357,7 @@ export default function Home() {
             <span className="bg-gradient-to-r from-violet-300 to-cyan-200 bg-clip-text text-transparent">
               lebih tenang.
             </span>
-            {' '}Simpan catatan sekolah, rencana project, dan pengingat penting dalam satu dashboard yang mudah dipantau.
+            {/* {' '}Simpan catatan sekolah, rencana project, dan pengingat penting dalam satu dashboard yang mudah dipantau. */}
           </h2>
         </section>
 
