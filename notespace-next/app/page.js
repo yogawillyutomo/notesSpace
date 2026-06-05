@@ -348,21 +348,22 @@ export default function Home() {
           </button>
         </header>
 
-        <section className="mb-8 grid gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
-          <div className="py-2 sm:py-6">
-            <p className="mb-4 text-sm font-bold uppercase text-cyan-200/90">
-              Halo, siap lanjut hari ini?
-            </p>
-            <h2 className="max-w-3xl text-4xl font-black leading-tight text-white sm:text-6xl lg:text-7xl">
-              Atur tugas, rangkuman, dan ide dengan cara yang{' '}
-              <span className="bg-gradient-to-r from-violet-300 to-cyan-200 bg-clip-text text-transparent">
-                lebih tenang
-              </span>
-            </h2>
-            <p className="mt-5 max-w-2xl text-base leading-7 text-slate-400">
-              Simpan catatan sekolah, rencana project, dan pengingat penting dalam satu dashboard yang mudah dipantau.
-            </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+        <section className="mb-6 py-2 sm:py-6">
+          <p className="mb-4 text-sm font-bold uppercase text-cyan-200/90">
+            Halo, siap lanjut hari ini?
+          </p>
+          <h2 className="max-w-6xl text-3xl font-black leading-tight text-white sm:text-4xl lg:text-5xl">
+            Atur tugas, rangkuman, dan ide dengan cara yang{' '}
+            <span className="bg-gradient-to-r from-violet-300 to-cyan-200 bg-clip-text text-transparent">
+              lebih tenang.
+            </span>
+            {' '}Simpan catatan sekolah, rencana project, dan pengingat penting dalam satu dashboard yang mudah dipantau.
+          </h2>
+        </section>
+
+        <section className="glass-panel mb-8 rounded-[2rem] p-4 sm:p-5">
+          <div className="grid gap-4 xl:grid-cols-[minmax(280px,1fr)_1.2fr] xl:items-start">
+            <div className="flex flex-col gap-3 sm:flex-row">
               <label className="relative min-w-0 flex-1">
                 <span className="sr-only">Cari catatan</span>
                 <span className="pointer-events-none absolute left-5 top-1/2 -translate-y-1/2 text-slate-500">
@@ -383,12 +384,26 @@ export default function Home() {
                 Buat Catatan
               </button>
             </div>
-          </div>
 
-          <FocusCard note={focusNote} />
+            <div className="min-w-0">
+              <p className="mb-3 text-xs font-black uppercase text-cyan-200/80">Pilih fokus catatan</p>
+              <div className="flex gap-3 overflow-x-auto pb-2">
+                {categories.map((category) => (
+                  <button
+                    className={`filter-pill ${activeCategory === category ? 'filter-pill-active' : ''}`}
+                    key={category}
+                    onClick={() => setActiveCategory(category)}
+                  >
+                    {category}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
         </section>
 
-        <section className="mb-8 grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+        <section className="mb-8 grid gap-6 lg:grid-cols-2">
+          <FocusCard note={focusNote} />
           <div className="glass-panel rounded-[2rem] p-6">
             <div className="mb-6 flex items-center justify-between gap-4">
               <div>
@@ -405,22 +420,6 @@ export default function Home() {
                   <p className="text-sm font-semibold text-slate-400">{stat.label}</p>
                   <p className="mt-3 text-3xl font-black text-white">{stat.value}</p>
                 </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="glass-panel rounded-[2rem] p-6">
-            <p className="text-xs font-black uppercase text-cyan-200/80">Kategori</p>
-            <h2 className="mt-1 text-2xl font-black text-white">Pilih fokus catatan</h2>
-            <div className="mt-5 flex gap-3 overflow-x-auto pb-2">
-              {categories.map((category) => (
-                <button
-                  className={`filter-pill ${activeCategory === category ? 'filter-pill-active' : ''}`}
-                  key={category}
-                  onClick={() => setActiveCategory(category)}
-                >
-                  {category}
-                </button>
               ))}
             </div>
           </div>

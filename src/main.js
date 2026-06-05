@@ -129,17 +129,18 @@ app.innerHTML = `
         </div>
       </div>
 
-      <section class="mb-8 grid gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
-        <div class="py-2 sm:py-6">
-          <p class="mb-4 text-sm font-bold uppercase text-cyan-200/90">Halo, siap lanjut hari ini?</p>
-          <h2 class="max-w-3xl text-4xl font-black leading-tight text-white sm:text-6xl lg:text-7xl">
-            Atur tugas, rangkuman, dan ide dengan cara yang
-            <span class="bg-gradient-to-r from-violet-300 to-cyan-200 bg-clip-text text-transparent">lebih tenang</span>
-          </h2>
-          <p class="mt-5 max-w-2xl text-base leading-7 text-slate-400">
-            Simpan catatan sekolah, rencana project, dan pengingat penting dalam satu dashboard yang mudah dipantau.
-          </p>
-          <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+      <section class="mb-6 py-2 sm:py-6">
+        <p class="mb-4 text-sm font-bold uppercase text-cyan-200/90">Halo, siap lanjut hari ini?</p>
+        <h2 class="max-w-6xl text-3xl font-black leading-tight text-white sm:text-4xl lg:text-5xl">
+          Atur tugas, rangkuman, dan ide dengan cara yang
+          <span class="bg-gradient-to-r from-violet-300 to-cyan-200 bg-clip-text text-transparent">lebih tenang</span>.
+          Simpan catatan sekolah, rencana project, dan pengingat penting dalam satu dashboard yang mudah dipantau.
+        </h2>
+      </section>
+
+      <section class="glass-panel mb-8 rounded-[2rem] p-4 sm:p-5">
+        <div class="grid gap-4 xl:grid-cols-[minmax(280px,1fr)_1.2fr] xl:items-start">
+          <div class="flex flex-col gap-3 sm:flex-row">
             <label class="relative min-w-0 flex-1">
               <span class="sr-only">Cari catatan</span>
               <span class="pointer-events-none absolute left-5 top-1/2 -translate-y-1/2 text-slate-500">Search</span>
@@ -147,12 +148,15 @@ app.innerHTML = `
             </label>
             <button class="rounded-3xl bg-gradient-to-r from-violet-500 to-cyan-300 px-7 py-4 text-sm font-black text-white shadow-cyan transition hover:-translate-y-0.5 sm:min-w-40" data-action="new-note">Buat Catatan</button>
           </div>
+          <div class="min-w-0">
+            <p class="mb-3 text-xs font-black uppercase text-cyan-200/80">Pilih fokus catatan</p>
+            <div id="categoryFilters" class="flex gap-3 overflow-x-auto pb-2"></div>
+          </div>
         </div>
-
-        <aside id="focusCard" class="glass-panel rounded-[2rem] p-6 sm:p-8"></aside>
       </section>
 
-      <section class="mb-8 grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+      <section class="mb-8 grid gap-6 lg:grid-cols-2">
+        <aside id="focusCard" class="glass-panel rounded-[2rem] p-6 sm:p-8"></aside>
         <div class="glass-panel rounded-[2rem] p-6">
           <div class="mb-6 flex items-center justify-between gap-4">
             <div>
@@ -162,16 +166,6 @@ app.innerHTML = `
             <span class="rounded-full border border-cyan-200/20 bg-cyan-300/10 px-4 py-2 text-xs font-bold text-cyan-100">Tersimpan otomatis</span>
           </div>
           <div id="statsGrid" class="grid grid-cols-2 gap-3"></div>
-        </div>
-
-        <div class="glass-panel rounded-[2rem] p-6">
-          <div class="mb-5 flex items-center justify-between gap-3">
-            <div>
-              <p class="text-xs font-black uppercase text-cyan-200/80">Kategori</p>
-              <h2 class="mt-1 text-2xl font-black text-white">Pilih fokus catatan</h2>
-            </div>
-          </div>
-          <div id="categoryFilters" class="flex gap-3 overflow-x-auto pb-2"></div>
         </div>
       </section>
 
