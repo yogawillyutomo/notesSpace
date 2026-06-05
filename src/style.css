@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #020617;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    min-height: 100vh;
+    margin: 0;
+    overflow-x: hidden;
+    background:
+      radial-gradient(circle at 12% 10%, rgba(124, 58, 237, 0.23), transparent 32rem),
+      radial-gradient(circle at 88% 72%, rgba(34, 211, 238, 0.18), transparent 34rem),
+      linear-gradient(145deg, #020617 0%, #07111f 48%, #030712 100%);
+    color: #f8fafc;
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  button {
+    cursor: pointer;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply border border-white/10 bg-white/10 shadow-glow backdrop-blur-xl;
+  }
+
+  .field {
+    @apply w-full rounded-3xl border border-white/10 bg-slate-950/70 px-5 py-4 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300/60 focus:ring-4 focus:ring-cyan-300/10;
+  }
+
+  .icon-button {
+    @apply grid h-10 w-10 place-items-center rounded-2xl border border-white/10 bg-white/10 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-white/20;
+  }
+
+  .modal-shell {
+    @apply fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/80 px-4 py-8 backdrop-blur-xl;
+  }
+
+  .modal-shell.is-open {
+    @apply flex;
+  }
+
+  .note-card {
+    @apply min-h-[260px] rounded-[2rem] border p-6 shadow-cyan transition duration-300 hover:-translate-y-1;
+  }
+
+  .filter-pill {
+    @apply whitespace-nowrap rounded-full border border-white/10 bg-white/10 px-5 py-2.5 text-sm font-semibold text-slate-300 transition hover:bg-white/20;
+  }
+
+  .filter-pill.is-active {
+    @apply border-violet-300/50 bg-violet-500 text-white shadow-glow;
+  }
+}
+
+@layer utilities {
+  .line-clamp-note {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
